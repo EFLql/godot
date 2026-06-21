@@ -341,6 +341,8 @@ void Polygon2D::_notification(int p_what) {
 
 					for (int j = 0; j < ic; j++) {
 						int idx = r[j];
+						if (idx < 0 || idx >= points.size())
+							WARN_PRINT("polygon index: " + itos(i) + ": point index '" + itos(j) + "' is out of range!");
 						ERR_CONTINUE(idx < 0 || idx >= points.size());
 						tmp_points.write[j] = points[r[j]];
 					}
